@@ -61,7 +61,7 @@ FlattenLayer = keras.layers.Flatten()
 path = FlattenLayer(input)
 
 for i in range(0,6):
-  LayerDense1 = keras.layers.Dense(10, activation=None, use_bias=True, kernel_initializer='glorot_uniform')
+  LayerDense1 = keras.layers.Dense(30, activation=None, use_bias=True, kernel_initializer='glorot_uniform')
   path = LayerDense1(path)
 
   LayerPReLU1 = keras.layers.PReLU(alpha_initializer='zeros', shared_axes=None)
@@ -83,7 +83,7 @@ rmsOptimizer = keras.optimizers.Adam(lr=0.001, beta_1=0.9, beta_2=0.999, decay=0
 
 genderModel.compile(optimizer=rmsOptimizer,loss=keras.losses.binary_crossentropy,metrics=['accuracy'])
 
-genderModel.fit(BazaImg, BazaAns, epochs=20, batch_size=10, shuffle=True)
+genderModel.fit(BazaImg, BazaAns, epochs=25, batch_size=10, shuffle=True)
 
 genderModel.save('siec.h5')
 #Przetestować / użyć sieci
